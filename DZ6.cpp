@@ -39,6 +39,7 @@ public:
     void Print();
     void AddTail(int n);
     void AddHead(int n);
+    int Count_Even();
 };
 
 void List::Print()
@@ -56,6 +57,18 @@ void List::Print()
 
         cout << temp->val << endl;
     }
+}
+
+int List::Count_Even()
+{
+    int counter = 0;
+    Node* p = Head;
+    while (p->next !=0)
+    {
+        if (p->val % 2 == 0) counter++;
+        p = p->next;
+    }
+    return counter;
 }
 
 void List::Del(int pos)
@@ -237,8 +250,7 @@ int main()
     int n = 20;
     random_list(L, n);
     L.Print();
-    L.DelAll();
-    L.Print();
+    cout << L.Count_Even() << endl;
     system("pause");
     return 0;
 }
